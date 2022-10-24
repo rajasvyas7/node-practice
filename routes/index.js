@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var public = require('../controllers/public');
+var public = require('../controllers/publicController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let data = public.index()
-  res.sendStatus(data);
+  public.index(req, res);
+  // res.sendStatus(data);
 });
 
 module.exports = router;

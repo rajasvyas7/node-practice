@@ -1,9 +1,20 @@
 var express = require('express');
 var router = express.Router();
+var public = require('../controllers/publicController');
 
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  console.log('King Kohli');
+  let data = {
+    name: 'Rajas',
+    location: 'Pune'
+  };
+  res.sendStatus(data);
+});
+
+router.post('/register', function(req, res, next) {
+  public.register(req, res);
+  // res.sendStatus(data); 
 });
 
 module.exports = router;

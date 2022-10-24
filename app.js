@@ -40,6 +40,7 @@ app.use(function(err, req, res, next) {
 
 app.response.sendStatus = function ( message, statusCode=200, type='application/json') {
     // code is intentionally kept simple for demonstration purpose
+    console.log('app.js 43 msg', message, 'status-code', statusCode, 'type', type);
     return this.contentType(type)
       .status(statusCode)
       .send(message)
