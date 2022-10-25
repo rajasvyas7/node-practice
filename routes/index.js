@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var public = require('../controllers/publicController');
+const express = require('express');
+const router = express.Router();
+const public = require('../controllers/publicController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
