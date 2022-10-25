@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/register', function(req, res, next) {
   public.register(req, res);
-  // res.sendStatus(data); 
 });
 
 module.exports = router;
