@@ -2,19 +2,22 @@ const db = require('../helpers/db');
 
 class Users {
     add (data) {
-        console.log('db connection', db);
+        // console.log('db connection', db);
         return new Promise((resolve, reject) => {
             db.query('INSERT INTO users SET ?', data, function(error, result, fields) {
                 if (error) { 
                     console.log('db error', error);
-                    throw error;
+                    reject(error);
+                    // throw error;
                 }
-                console.log('db result', result);
-                console.log('db fields', fields);
-                resolve(true);
+                if (result && result.insertId) {
+                    resolve(result.insertId);
+                }
+                else  {
+                    reject('Something went wrong!');
+                }
+                
             });
-            // console.log(sql.sql);
-            // return true;
         })
     }
 }

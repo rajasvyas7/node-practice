@@ -1,4 +1,5 @@
 const user = require('../models/Users');
+const moment = require('moment');
 
 class Public {
     async index(request, response)  {
@@ -6,11 +7,10 @@ class Public {
     }
 
     async register(request, response) {
-        console.log('Pulic register', request.body);
-        let values = {...request.body, 'created_at': '2022-10-24 02:25:25'}
+        let values = {...request.body, 'created_at': moment().format('YYYY-MM-DD HH:mm:ss')};
+        console.log('values', values);
         let resp = await user.add(values);
-        console.log('Pulic register', resp);
-        response.sendStatus('Registratrion in progress');
+        response.sendStatus({'message': `User registered with user-id ${resp}` });
     }
 }
 
