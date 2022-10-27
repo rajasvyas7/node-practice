@@ -4,8 +4,6 @@ const pub = require('../controllers/publicController');
 
 
 router.get('/', function(req, res, next) {
-    let me='Rajas';
-  console.log('King Kohli');
   const data = {
     name: 'Rajas',
   location: 'Pune',
